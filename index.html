@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Máquina CNC</title>
+	
+    <!-- O si usas un archivo PNG -->
+    <link rel="icon" href="C:\Users\Android6534\Downloads\Manual de uso CNC/logo.webp" type="logo/png">
+	
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+	
+		
+		body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+#componentes {
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    text-align: left;
+    font-size: 1.1em;
+    color: black;
+}
+
+.componente-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.componente {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.componente img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.componente h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: black;
+}
+
+.componente p {
+    margin-top: 5px;
+    color: #555;
+}
+
+		
+		
+			html {
+		scroll-behavior: smooth;
+		}
+
+	
+	
+        /* Estilo general */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #444;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 15px 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        /* Carrusel principal */
+        .carousel-main-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .carousel-main {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+
+        .carousel-main img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+            transition: opacity 1s ease;
+        }
+
+        .carousel-main img.active {
+            display: block;
+        }
+
+        /* Configuración inicial */
+        .setup-step {
+            background: #f1f1f1;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .setup-step h3 {
+            font-size: 1.1em;
+            margin: 0;
+            color: #333;
+        }
+
+        .setup-step img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .setup-step img:hover {
+            transform: scale(1.05);
+        }
+
+        .code-box {
+            background: #eaeaea;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow: auto;
+            white-space: pre-wrap;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8em;
+        }
+
+        footer div {
+            margin-top: 5px;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 5px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+		
+		video {
+            width: 50%; /* Hacemos el video más pequeño */
+            max-width: 1000px;
+            border: 2px solid #ccc;
+        }
+		
+/* Estilo para el contenedor del video con flexbox */
+        #videoContainer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center; /* Centra el video horizontalmente */
+            align-items: center; /* Centra el video verticalmente */
+            height: 250px; /* Altura del contenedor */
+        }
+		
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.webp" alt="Logo de la empresa" title="INKCube3D">
+
+        <h1>Manual de Usuario - Máquina CNC</h1>
+    </header>
+
+    <nav>
+        <ul>
+		
+		 <img src="logo.webp" alt="Logo o imagen decorativa" style="width: 50%; margin-bottom: 10px;">
+			
+			<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position:fixed; bottom:20px; right:20px;">🔝</button>
+			
+			
+            <li><a href="#manual">Manual de Usuario</a></li>
+            <li><a href="#componentes">Componentes requeridos</a></li>
+            <li><a href="#setup">Configuración Inicial</a></li>
+            <li><a href="#operation">Operación</a></li>
+            <li><a href="#examples">Ejemplos de Trabajo</a></li>
+            <li><a href="#maintenance">Mantenimiento</a></li>
+        </ul>
+		
+		
+    </nav>
+
+    <main>
+        <!-- Carrusel Principal -->
+        <div class="carousel-main-container">
+            <div class="carousel-main">
+                <img src="image1.jpeg" alt="Montaje paso 1"  class="active">
+                <img src="image2.jpeg" alt="Montaje paso 2">
+                <img src="image3.jpeg" alt="Montaje paso 3">
+                <img src="image4.jpeg" alt="Montaje paso 4">
+            </div>
+        </div>
+
+        <!-- Manual de Usuario -->
+        <section id="manual">
+            <h2>Manual de Usuario</h2>
+            
+            <p>Esta máquina CNC se alimenta mediante el uso de dos motores paso a paso y un servomotor. Es decir, actúa a través de los ejes X, Y y Z. Además, todos estos motores se activan utilizando el motor drive shield L293D y la placa Arduino UNO. Si queremos dibujar un personaje a través de esta máquina CNC, se debe obtener su código G. El software Inkscape se ha utilizado para esto. Además, el programa Arduino establece la máquina CNC para que funcione, y se utiliza un programa de procesamiento para ejecutar el código G. En este tutorial, cómo hacer todo esto se describe paso a paso y al final del tutorial, puede crear fácilmente una máquina CNC en casa.</p>
+		</section>
+
+
+		<!-- Componentes requeridos -->
+        <section id="componentes">
+            <h2>Componentes requeridos</h2>
+
+		<p>En esta sección se detallan los componentes necesarios para realizar el proyecto. Haz clic sobre las imágenes para obtener más información sobre cada uno.</p>
+
+        <div class="componente-grid">
+		
+            <div class="componente">
+                <img src="soporte.png" alt="Componente 1">
+                <h3>X2 Soporte O Chumacera Para Eje Lineal </h3>
+                <p>8mm, Impresoras 3d, Cnc.</p>
+            </div>
+            <div class="componente">
+                <img src="soporte2.png" alt="Componente 2">
+                <h3>X2 Soporte Sk8uu Sk8 </h3>
+                <p>Guía Lineal Varilla 8mm Cnc Impresora.</p>
+            </div>
+            <div class="componente">
+                <img src="lisa.png" alt="Componente 3">
+                <h3>Varilla Lisa </h3>
+                <p>8mm X 45cm Eje Óptico.</p>
+            </div>
+			<div class="componente">
+                <img src="acme.png" alt="Componente 3">
+                <h3>Varilla-Tornillo tipo Husillo </h3>
+                <p>I3dp M604 3d Thsl 8mm -400-8d Acme Husillo Roscada Y Tuerca</p>
+            </div>
+			<div class="componente">
+                <img src="camisa.png" alt="Componente 3">
+                <h3>Rodamiento Balero  </h3>
+                <p>Sc8uu Chumacera Lineal 8mm Impresora 3d.</p>
+            </div>
+			<div class="componente">
+                <img src="camisa1.png" alt="Componente 3">
+                <h3>Camisa Alojamiento  </h3>
+                <p>Para Tuerca Antibacklash, Router Cnc de 8mm.</p>
+            </div>
+			<div class="componente">
+                <img src="controlador.png" alt="Componente 3">
+                <h3>Controlador de Motores  </h3>
+                <p>Tarjeta de control de motores CC (L293D).</p>
+            </div>
+			<div class="componente">
+                <img src="cople.png" alt="Componente 3">
+                <h3>X2 Cople flexible</h3>
+                <p>Cople Flexible 8mm A 5mm Acople Impresora 3d Cnc Nema .</p>
+            </div>
+			<div class="componente">
+                <img src="servo.png" alt="Componente 3">
+                <h3>Servomotor  </h3>
+                <p>Micro Servomotor Sg90.</p>
+            </div>
+			<div class="componente">
+                <img src="eliminador.png" alt="Componente 3">
+                <h3>Eliminador  </h3>
+                <p>Eliminador de Voltaje AC-DC 5V.</p>
+            </div>
+			<div class="componente">
+                <img src="arduino.png" alt="Componente 3">
+                <h3>Arduino Uno  </h3>
+                <p>Arduino UNO R3 Genérico.</p>
+            </div>
+			<div class="componente">
+                <img src="motor.png" alt="Componente 3">
+                <h3>X2 Motor de Pasos</h3>
+                <p>Motor a pasos bipolar NEMA 17 12V a 1.2 A.</p>
+            </div>
+
+        </div>
+    </section>
+
+		</section>
+
+        <!-- Configuración Inicial -->
+        <section id="setup">
+            <h2>Configuración Inicial</h2>
+
+            <div class="setup-step">
+                <h3>Paso 1: Montaje de la Máquina</h3>
+                
+                <p><b>Paso 1 :</b> Con aluminio, arma una estructura cuadrada de 40<small>cm</small> por 30<small>cm</small> con bases de 20<small>cm</small>. Nivela la estructura y perfora con un taladro para colocar chumaceras y soportes  <i>SK8UU</i> para la varilla lisa de <small>8mm</small>, luego, instala los ejes y varillas.</p>
+            <img src="setup1.jpeg" alt="Montaje de la máquina" title="Estructura de la Base de la máquina CNC" style="width:150%; max-width:300px; margin-bottom:10px;">
+			<img src="setup2.jpeg" alt="Montaje de la máquina" title= "Nivelación y colocación de los soportes de las varillas" style="width:200%; max-width:170px; margin-bottom:10px;">
+			<img src="setup3.jpeg" alt="Montaje de la máquina" title= "Taladrando los hoyos para colocar los soportes" style="width:150%; max-width:300px; margin-bottom:10px;">
+			    <p><b>Paso 2 :</b> Sobre la varilla lisa de 8mm y la varilla-tronillo de 8mm coloca sus respectivos ejes, el Rodamiento balero de 8mm y la camisa de alojamiento, sobre estas coloca una superficie con aluminio de 5cm por 5cm para después colocar los soportes Chumacera donde ira montada la varilla-tornillo de 8mm con la camisa de alojamiento.</p>
+			<img src="setup4.jpeg" alt="Montaje de la máquina" title= "Colocando los soportes para las varillas" style="width:150%; max-width:300px; margin-bottom:10px;">
+			<img src="setup6.jpeg" alt="Montaje de la máquina" title= "Cortando las varillas a medida para los soportes" style="width:200%; max-width:170px; margin-bottom:10px;">
+			<img src="setup5.jpeg" alt="Montaje de la máquina" title= "Midiendo distancia para colocar las varillas" style="width:200%; max-width:170px; margin-bottom:10px;">
+			    <p><b>Paso 3 :</b> Ahora con aluminio haz las bases para los motores (Motor a pasos bipolar NEMA 17 12V a 1.2 A) de paso detrás de las chumaceras de 8mm nivelando para que no haya movimientos extraños, una vez instalada coloca los Coples Flexibles de 8mm a 5mm sobre los motores empatándolo con las varillas-tornillo de 8mm.</p>
+			<img src="setup7.jpeg" alt="Montaje de la máquina" title= "Midiendo y haciendo los soportes para los motores de paso" style="width:150%; max-width:300px; margin-bottom:10px;">
+			<img src="setup8.jpeg" alt="Montaje de la máquina" title= "Midiendo y colocando los motores para empezar a fijarlos." style="width:150%; max-width:300px; margin-bottom:10px;">
+			    <p><b>Paso 4 :</b> Ahora sobre el soporte superior haz el soporte donde ira colocada la pluma central con la que dibujara, una vez terminada con un pedazo de madera crea una base para esta misma y colocar lo que sigue.</p>
+			<img src="setup8.jpeg" alt="Montaje de la máquina" title= "Pluma central con la base de la parte superior" style="width:150%; max-width:300px; margin-bottom:10px;">
+			<img src="setup8.jpeg" alt="Montaje de la máquina" title= "Base de madera con la Máquina CNC" style="width:150%; max-width:300px; margin-bottom:10px;">
+			    <p><b>Paso 5 :</b> Crea una pequeña base sobre la base de madera para colocar y fijar el Arduino Uno, con el Arduino Uno ya fijado móntale el controlador de 4 motores (L293D), una vez montado sobre el Arduino Uno Conecta 2 de los 4 primero cables del motor de paso que vienen juntos al M1 del controlador de motores y los otros 2 restantes al M2 del controlador y haz lo mismo con el otro motor de pasos, pero ahora con el M3 Y M4 del controlador y conecta el servomotor en el servo_2.</p>
+			<img src="setup11.jpeg" alt="Montaje de la máquina" title= "Motor de pasos para conectarlo al controlador de motores" style="width:200%; max-width:170px; margin-bottom:10px;">
+			<img src="setup12.jpeg" alt="Montaje de la máquina" title= "Controlador de motores conectado al motor de pasos y al servomotor" style="width:200%; max-width:170px; margin-bottom:10px;">
+			<img src="setup13.jpeg" alt="Montaje de la máquina" title= "Controlador de motores conectado al motor de pasos y al servomotor" style="width:150%; max-width:300px; margin-bottom:10px;">
+			</div>
+
+            <div class="setup-step">
+                <h3>Paso 2: Instalación del Software</h3> <br>
+				<p> <b>Paso 1: </b>  Programas que necesitaremos para programar y vectorizar las imagenes. </p>
+				<li> <a href="https://www.arduino.cc/en/software" target="_blank">Arduino</a> </li>
+				 <li><a href="https://inkscape.org/es/" target="_blank">Inkscape</a></li>
+				 <li><a href="https://processing.org/download" target="_blank">Processing-Code</a></li> 
+				 <li><a href= "https://drive.google.com/file/d/17xvPo69MnWCU0Ba3Pm0uA_bRlH1njRMb/view" target="_blank">Libreria AFmotor</a></li>
+				 <li><a href="https://drive.google.com/drive/folders/1RaClLY7TZnHLEF4Pa7djk48BdrZ4QLrM" target="_blank">Programa completo de este proyecto</a></li> <br>
+				 
+                <p><B> Paso 2: </b>Descarga e instala los programas Arduino, Inkscape y Processing-Code.</p>
+                <p> <b> Paso 3: </b>Una vez instalados los 3 programas abre Arduino y descarga las 2 primeras librerías “Servo.h” y “AFMotor.h”, una vez instaladas, copia y pega el código que te dejamos abajo. Una vez que ya tengas todo esto conecta el cable del Arduino a tu computadora y verifica que corra sin problemas.</p>
+                    <button id="showCodeBtn" onclick="toggleCodeBox()">Mostrar Código</button>
+
+    <div id="codeBox">
+        <textarea id="codeTextarea" rows="10" cols="50">
+		
+        //*How to make a mini CNC machine using Arduino
+   Home Page
+*/
+
+#include <Servo.h>
+#include <AFMotor.h>
+
+AF_Stepper motory(200, 1);
+AF_Stepper motorx(200, 2);
+Servo servo;
+
+#define penup 90
+#define pendown 29
+#define Spin 9
+
+//Structures, global variables
+struct point {
+  float x;
+  float y;
+  float z;
+};
+
+//Current position of plothead
+struct point actuatorPos;
+
+//Drawing settings, should be OK
+float StepInc = 1;
+int StepDelay = 1;
+int LineDelay = 0;
+
+//Steps per width and height of the drawing area
+float StepsPerMillimeterX = 1312.0;
+float StepsPerMillimeterY = 2000.0;
+
+//Max and min values of the drawing area(mm)
+float Xmin = 0;
+float Xmax = 1000;
+float Ymin = 0;
+float Ymax = 1000;
+float Zmin = 0;
+float Zmax = 1;
+
+float Xpos = Xmin;
+float Ypos = Ymin;
+float Zpos = Zmax;
+
+// Set to true to get debug output.
+boolean verbose = false;
+
+
+void setup() {
+  Serial.begin( 9600 );
+  servo.attach(Spin);
+  servo.write(penup);
+  delay(100);
+  motorx.setSpeed(110);
+  motory.setSpeed(110);
+  Serial.println("Your CNC machine is ready...");
+}
+
+void loop() {
+  delay(100);
+  char line[512];
+  char c;
+  int lineIndex;
+  bool lineIsComment, lineSemiColon;
+
+  lineIndex = 0;
+  lineSemiColon = false;
+  lineIsComment = false;
+
+  while (1) {
+
+
+    while ( Serial.available() > 0 ) {
+      c = Serial.read();
+      if (( c == '\n') || (c == '\r') ) {             
+        if ( lineIndex > 0 ) {                        
+          line[ lineIndex ] = '\0';                   
+          if (verbose) {
+            Serial.print( "Received : ");
+            Serial.println( line );
+          }
+          processIncomingLine( line, lineIndex );
+          lineIndex = 0;
+        }
+        else {
+          // Empty or comment line. Skip block.
+        }
+        lineIsComment = false;
+        lineSemiColon = false;
+        Serial.println("ok");
+      }
+      else {
+        if ( (lineIsComment) || (lineSemiColon) ) {   
+          if ( c == ')' )  lineIsComment = false;     
+        }
+        else {
+          if ( c <= ' ' ) {                           
+          }
+          else if ( c == '/' ) {                    
+          }
+          else if ( c == '(' ) {                    
+            lineIsComment = true;
+          }
+          else if ( c == ';' ) {
+            lineSemiColon = true;
+          }
+          else if ( lineIndex >= 512 - 1 ) {
+            Serial.println( "ERROR - lineBuffer overflow" );
+            lineIsComment = false;
+            lineSemiColon = false;
+          }
+          else if ( c >= 'a' && c <= 'z' ) {        
+            line[ lineIndex++ ] = c - 'a' + 'A';
+          }
+          else {
+            line[ lineIndex++ ] = c;
+          }
+        }
+      }
+    }
+  }
+}
+
+void processIncomingLine( char* line, int charNB ) {
+  int currentIndex = 0;
+  char buffer[ 64 ];                                 
+  struct point newPos;
+
+  newPos.x = 0.0;
+  newPos.y = 0.0;
+
+  while ( currentIndex < charNB ) {
+    switch ( line[ currentIndex++ ] ) {              
+      case 'U':
+        penUp();
+        break;
+      case 'D':
+        penDown();
+        break;
+      case 'G':
+        buffer[0] = line[ currentIndex++ ];          
+        //      buffer[1] = line[ currentIndex++ ];
+        //      buffer[2] = '\0';
+        buffer[1] = '\0';
+
+        switch ( atoi( buffer ) ) {                  
+          case 0:                                   
+          case 1:
+            // /!\ Dirty - Suppose that X is before Y
+            char* indexX = strchr( line + currentIndex, 'X' ); 
+            char* indexY = strchr( line + currentIndex, 'Y' );
+            if ( indexY <= 0 ) {
+              newPos.x = atof( indexX + 1);
+              newPos.y = actuatorPos.y;
+            }
+            else if ( indexX <= 0 ) {
+              newPos.y = atof( indexY + 1);
+              newPos.x = actuatorPos.x;
+            }
+            else {
+              newPos.y = atof( indexY + 1);
+              indexY = '\0';
+              newPos.x = atof( indexX + 1);
+            }
+            drawLine(newPos.x, newPos.y );
+            //        Serial.println("ok");
+            actuatorPos.x = newPos.x;
+            actuatorPos.y = newPos.y;
+            break;
+        }
+        break;
+      case 'M':
+        buffer[0] = line[ currentIndex++ ];        
+        buffer[1] = line[ currentIndex++ ];
+        buffer[2] = line[ currentIndex++ ];
+        buffer[3] = '\0';
+        switch ( atoi( buffer ) ) {
+          case 300:
+            {
+              char* indexS = strchr( line + currentIndex, 'S' );
+              float Spos = atof( indexS + 1);
+              //         Serial.println("ok");
+              if (Spos == 30) {
+                penDown();
+              }
+              if (Spos == 50) {
+                penUp();
+              }
+              break;
+            }
+          case 114:                                
+            Serial.print( "Absolute position : X = " );
+            Serial.print( actuatorPos.x );
+            Serial.print( "  -  Y = " );
+            Serial.println( actuatorPos.y );
+            break;
+          default:
+            Serial.print( "Command not recognized : M");
+            Serial.println( buffer );
+        }
+    }
+  }
+}
+
+void drawLine(float x1, float y1) {
+
+  if (verbose) {
+    Serial.print("fx1, fy1: ");
+    Serial.print(x1);
+    Serial.print(",");
+    Serial.print(y1);
+    Serial.println("");
+  }
+
+  y1 = y1 * -1;
+
+  
+  if (x1 >= Xmax) {
+    x1 = Xmax;
+  }
+  if (x1 <= Xmin) {
+    x1 = Xmin;
+  }
+  if (y1 >= Ymax) {
+    y1 = Ymax;
+  }
+  if (y1 <= Ymin) {
+    y1 = Ymin;
+  }
+
+
+
+  if (verbose) {
+    Serial.print("Xpos, Ypos: ");
+    Serial.print(Xpos);
+    Serial.print(",");
+    Serial.print(Ypos);
+    Serial.println("");
+  }
+
+  if (verbose) {
+    Serial.print("x1, y1: ");
+    Serial.print(x1);
+    Serial.print(",");
+    Serial.print(y1);
+    Serial.println("");
+  }
+
+  
+  x1 = (int)(x1 * StepsPerMillimeterX / 2);
+  y1 = (int)(y1 * StepsPerMillimeterY / 2);
+  float x0 = Xpos;
+  float y0 = Ypos;
+
+
+  long dx = abs(x1 - x0);
+  long dy = abs(y1 - y0);
+  int sx = x0 < x1 ? StepInc : -StepInc;
+  int sy = y0 < y1 ? StepInc : -StepInc;
+
+  long i;
+  long over = 0;
+
+  if (dx > dy) {
+    for (i = 0; i < dx; ++i) {
+      motorx.onestep(sx, MICROSTEP);
+      over += dy;
+      if (over >= dx) {
+        over -= dx;
+        motory.onestep(sy, MICROSTEP);
+      }
+      delay(StepDelay);
+    }
+  } else {
+    for (i = 0; i < dy; ++i) {
+      motory.onestep(sy, MICROSTEP);
+      over += dx;
+      if (over >= dy) {
+        over -= dy;
+        motorx.onestep(sx, MICROSTEP);
+      }
+      delay(StepDelay);
+    }
+  }
+
+  if (verbose) {
+    Serial.print("dx, dy:");
+    Serial.print(dx);
+    Serial.print(",");
+    Serial.print(dy);
+    Serial.println("");
+  }
+
+  if (verbose) {
+    Serial.print("Going to (");
+    Serial.print(x0);
+    Serial.print(",");
+    Serial.print(y0);
+    Serial.println(")");
+  }
+
+  
+  delay(LineDelay);
+  Xpos = x1;
+  Ypos = y1;
+}
+
+
+void penUp() {
+  servo.write(penup);
+  delay(50);
+  Zpos = Zmax;
+}
+
+void penDown() {
+  servo.write(pendown);
+  delay(50);
+  Zpos = Zmin;
+} 
+		
+		
+        </textarea>
+        <button id="copyBtn" onclick="copyCode()">Copiar Código</button>
+    </div>
+
+    <script>
+        // Función para mostrar u ocultar el cuadro de código
+        function toggleCodeBox() {
+            var codeBox = document.getElementById('codeBox');
+            if (codeBox.style.display === 'none') {
+                codeBox.style.display = 'block';
+            } else {
+                codeBox.style.display = 'none';
+            }
+        }
+
+        // Función para copiar el código al portapapeles
+        function copyCode() {
+            var codeTextarea = document.getElementById('codeTextarea');
+            codeTextarea.select();
+            document.execCommand('copy');
+            alert('Código copiado al portapapeles!');
+        }
+    </script>
+	
+		<p> <b> Paso 4: </b>Previamente descarga una imagen de tu agrado y guardada en tu computadora, ahora abre el programa Inkscape y abre la imagen que descargaste en “archivo”, “importar” y seleccionas tu imagen. Luego con la imagen ya cargada te vas a la pestaña de “Trazo” y seleccionas “Vectorizar mapas de Vits”, le das en “Vista en directo” y “Detección de bordes” y aceptar. Te saldrá una imagen adicional solo borras la que tu cargaste y finamente le das en “Archivo”, “Guardar como” y seleccionas donde lo guardar y colocas la extensión “.gcode”.</p>
+            <img src="Primera captura.png" alt="Montaje de la máquina" title= "imágen importada desde tu ordenador" style="width:200%; max-width:400px; margin-bottom:10px;">
+			<img src="Segunda captura.png" alt="Montaje de la máquina" title= "Vectorizando la imágen" style="width:200%; max-width:400px; margin-bottom:10px;">
+			<img src="Tercera captura.png" alt="Montaje de la máquina" title= "Guardando la imagen con la extención .gcode" style="width:200%; max-width:400px; margin-bottom:10px;">
+
+		<p> <b> Paso 5: </b> Ahora con el archivo .gcode que ya tenemos podemos utilizar el tercer programa, abrimos Proccesing-Code y copias y pegas el código que te dejamos abajo, una vez pegado lo probaremos, primero conéctalo con el cable del Arduino a tu computadora, recuerda que previamente ya tiene que estar cargado el código de Arduino en el Arduino, luego de las en “Ejecutar”, después te abrirá un recuadro dándote las instrucciones de uso, le das en la tecla “p” para seleccionar el puerto de tu Arduino, luego la “g” y seleccionas el archivo que habías guardado antes y le das en aceptar para comenzar. </p>	
+			
+			
+    <button id="showCodeBtn" onclick="toggleCodeBox()">Mostrar Código</button>
+
+    <div id="codeBox">
+        <textarea id="codeTextarea" rows="10" cols="50">
+          import java.awt.event.KeyEvent; 
+import javax.swing.JOptionPane;
+import processing.serial.*;
+
+Serial port = null;
+
+String portname = null;
+boolean streaming = false;
+float speed = 0.001;
+String[] gcode;
+int i = 0;
+
+void openSerialPort(){
+  if (portname == null) return;
+  if (port != null) port.stop();
+  
+  port = new Serial(this, portname, 9600);
+  
+  port.bufferUntil('\n');
+}
+
+void selectSerialPort(){
+  String result = (String) JOptionPane.showInputDialog(null,  // Cambiado a null
+    "Seleccione el puerto COM en la placa Arduino",
+    "Seleccione puerto serial",
+    JOptionPane.QUESTION_MESSAGE,
+    null,
+    Serial.list(),
+    0);
+    
+  if (result != null) {
+    portname = result;
+    openSerialPort();
+  }
+}
+
+void setup(){
+  size(500, 120);
+  openSerialPort();
+}
+
+void draw(){
+  background(0);  
+  fill(255);
+  int y = 24, dy = 12;
+  text("Ejecute su máquina CNC..", 12, y); y += dy;
+  text("p: Selecciona el puerto serial", 12, y); y += dy;
+  text("g: Selecciona el archivo de G-code", 12, y); y += dy;
+  text("x: para la máquina CNC", 12, y); y += dy;
+  y = height - dy;
+  text("Desarrollado por Agustin Cruz", 12, y); y -= dy;
+  text("puerto serie actual: " + portname, 12, y); y -= dy;
+}
+
+void keyPressed(){
+  
+  if (!streaming) {
+    if (key == 'p') selectSerialPort();
+  }
+  
+  if (!streaming && key == 'g') {
+    gcode = null; i = 0;
+    File file = null; 
+    println("Loading file...");
+    selectInput("Select a file to process:", "fileSelected", file);
+  }
+  
+  if (key == 'x') streaming = false;
+}
+
+void fileSelected(File selection) {
+  if (selection == null) {
+    println("Window was closed or the user hit cancel.");
+  } else {
+    println("User selected " + selection.getAbsolutePath());
+    gcode = loadStrings(selection.getAbsolutePath());
+    if (gcode == null) return;
+    streaming = true;
+    stream();
+  }
+}
+
+void stream(){
+  if (!streaming) return;
+  
+  while (true) {
+    if (i == gcode.length) {
+      streaming = false;
+      return;
+    }
+    
+    if (gcode[i].trim().length() == 0) i++;
+    else break;
+  }
+  
+  println(gcode[i]);
+  port.write(gcode[i] + '\n');
+  i++;
+}
+
+void serialEvent(Serial p){
+  String s = p.readStringUntil('\n');
+  println(s.trim());
+  
+  if (s.trim().startsWith("ok")) stream();
+  if (s.trim().startsWith("error")) stream(); // XXX: really?
+}
+        </textarea>
+        <button id="copyBtn" onclick="copyCode()">Copiar Código</button>
+    </div>
+
+    <script>
+        // Función para mostrar u ocultar el cuadro de código
+        function toggleCodeBox() {
+            var codeBox = document.getElementById('codeBox');
+            if (codeBox.style.display === 'none') {
+                codeBox.style.display = 'block';
+            } else {
+                codeBox.style.display = 'none';
+            }
+        }
+
+        // Función para copiar el código al portapapeles
+        function copyCode() {
+            var codeTextarea = document.getElementById('codeTextarea');
+            codeTextarea.select();
+            document.execCommand('copy');
+            alert('Código copiado al portapapeles!');
+        }
+    </script>
+			
+			<img src="Cuarta captura.png" alt="Montaje de la máquina" title= "Ejecutando el código para cargar la imágen" style="width:200%; max-width:350px; margin-bottom:10px;">
+			<img src="Quinta captura.png" alt="Montaje de la máquina" title= "Seleccionado la imágen con extención .gcode" style="width:200%; max-width:350px; margin-bottom:10px;">
+
+			
+			
+			</div>
+
+            <div class="setup-step">
+                <h3>Paso 3: Conexión Eléctrica</h3>
+				
+				<p> <b> Paso 1: </b> Antes de empezar a probarla tienes que conectar el Arduino a tu computadora y así alimentar el pin de 5V de tu Arduino, además deberás de quitar jumper de “PWR” de el controlador de 4 motores para alimentar externa e independientemente al controlador de 4 motores, una vez quitado el jumper con un eliminador de 5V en el polo de +M conecta la terminal positiva de tu eliminador y en GND la parte negativa de tu eliminador. </p>	
+			<img src="Conexion1.jpeg" alt="Montaje de la máquina" title= "Contralador de motores sin el jumper" style="width:200%; max-width:200px; margin-bottom:10px;">
+			<img src="setup13.jpeg" alt="Montaje de la máquina" title= "Controlador de motores con el motor de pasos conectados el servomotor y el eliminador de 5v." style="width:200%; max-width:350px; margin-bottom:10px;">
+				                
+            </div>
+
+            <div class="setup-step">
+                <h3>Paso 4: Prueba de Funcionamiento</h3>
+                            <p> <b> Paso 1: </b> Asegúrate de tener tu máquina en un lugar nivelado donde no pueda moverse. <br><br>
+									 Para probar el funcionamiento de tu máquina CNC primero conecta todas las conexiones eléctricas previamente explicadas, en seguida abre el archivo que habías guardado de Proccesing-Code, una vez abierto con el código antes compartido ejecútalo y selecciona el puerto y el archivo de imagen vectorizado con extensión .gcode, al darle aceptar la máquina CNC independientemente comenzara a moverse así como a subir y bajar el servomotor hasta que termine el dibujo seleccionado.</p>	
+
+				<!-- Video en bucle -->
+    <div id="videoContainer">
+        <video controls loop autoplay>
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>		
+
+
+				</div>
+        </section>
+
+        <!-- Operación -->
+        <section id="operation">
+            <h2>Operación</h2>
+            <p>Pasos para operar la máquina CNC de manera segura y eficiente:</p>
+            <ul>
+                <li>Ubica la máquina en una superficie nivelada.</li>
+                <li>Asegúrate de que la parte donde ira la hoja de papel este completamente liza para evitar forzar al servomotor.</li>
+                <li>Revisa las conexiones eléctricas y que los valores de voltaje sean adecuados.</li>
+                <li>De ser necesario coloca fijadores en los extremos de las hojas para evitar que se nueva.</li>
+                <li>Asegúrate que las medidas de las varillas están bien colocadas para evitar que la maquina se forcé.</li>
+                <li>De ser necesario coloca grasa en las varillas para que corra de mejor manera.</li>
+                <li>Asegúrate que todas las conexiones están conectadas correctamente o que se haya salido algún cable de su lugar establecido.</li>
+                <li>De ser necesario en el código de Arduino ajusta los grados del servomotor para ajustar la altura de la pluma.</li>
+            </ul>
+        </section>
+
+        <!-- Ejemplos de Trabajo -->
+        <section id="examples">
+            <h2>Ejemplos de Trabajo</h2>
+            <p>A continuación, se muestran ejemplos de los resultados de la máquina CNC:</p>
+			
+			 <div id="videoContainer">
+        <video controls loop autoplay>
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>	
+			
+            <div class="carousel-container">
+                <div class="carousel-Example">
+                    <img src="example1.jpeg" alt="Ejemplo de trabajo 1" class="active">
+                    <img src="example2.jpeg" alt="Ejemplo de trabajo 2">
+                    <img src="example3.jpeg" alt="Ejemplo de trabajo 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Mantenimiento -->
+        <section id="maintenance">
+            <h2>Mantenimiento</h2>
+            <p>Consejos para el mantenimiento adecuado de la máquina CNC:</p>
+            <ul>
+                <li>Ubica la máquina en un lugar sombreado para evitar daños por el sol.</li>
+                <li>Cubre la máquina para evitar acumulación de polvo en los componentes.</li>
+                <li>Verificar que los motores funcionen de manera suave, sin ruidos inusuales o vibraciones.</li>
+                <li>Revisar los cables de los motores para asegurarse de que no haya daños visibles.</li>
+                <li>Lubricar los ejes y guías lineales utilizando el aceite o grasa recomendada por el fabricante.</li>
+                <li>Asegurarse de que los husillos estén alineados correctamente para garantizar precisión en los movimientos.</li>
+                <li>Realizar una calibración de precisión para asegurarse de que la máquina esté alineada correctamente.</li>
+            </ul>
+        </section>
+    </main>
+	
+	
+	
+    <footer>
+        <p style='text-align: center;' color = "white">&copy; 2024 INKCube3D Solutions. Todos los derechos reservados.</p>
+        <div>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+	
+	
+
+    <script>
+        // Carrusel de imágenes principal
+        let currentIndexMain = 0;
+        const mainImages = document.querySelectorAll(".carousel-main img");
+
+        function changeMainImage() {
+            mainImages[currentIndexMain].classList.remove("active");
+            currentIndexMain = (currentIndexMain + 1) % mainImages.length;
+            mainImages[currentIndexMain].classList.add("active");
+        }
+
+        setInterval(changeMainImage, 3000);
+
+        // Carrusel de imágenes de ejemplos
+        let currentIndexExample = 0;
+        const exampleImages = document.querySelectorAll(".carousel-Example img");
+
+        function changeExampleImage() {
+            exampleImages[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % exampleImages.length;
+            exampleImages[currentIndex].classList.add("active");
+        }
+
+        setInterval(changeExampleImage, 3000);
+    </script>
+
+</body>
+</html>
